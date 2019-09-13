@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    待办事项
+{%  endblock title %}
+
+{% block home_light %}
+    active
+{% endblock home_light %}
+
+{% block content %}
+    <br>
+    <div class="table-responsive">
+
+        <table class="table table-hover">
+            <thead class="thead-light">
+                <tr>
+                    <th scope="col">序号</th>
+                    <th scope="col">待办事项</th>
+                    <th scope="col">编辑</th>
+                    <th scope="col">划掉</th>
+                    <th scope="col">删除</th>
+                </tr>
+            </thead>
+
+            <tbody class="no-underline">
+
+                {% for thing in things %}
+
+                    <tr>
+                        <th scope="row">{{ forloop.counter }}</th>
+
+                        <td {% if thing.status == 1 %}class="text-dark" id="line-through"{% endif %}>{{ thing.content }}</td>
+
+                        <td><a href="{% url 'edit' thing.id %}" class="text-info">编辑</a></td>
+                        <td><a href="{% url 'edit' thing.id %}" class="text-info">划掉</a></td>
+                        <td><a href="javascript:void (0)" class="text-danger" onclick="del_thing({{ thing.id }})">删除</a></td>
+                    </tr>
+
+                {% endfor %}
+
+            </tbody>
+        </table>
+    </div>
+{% endblock content %}
+
+<script>
+
+    $(function () {
+        {#del_thing(id) {#}
+        {#    $.ajax({#}
+        {#        url: "/edit/" + id,#}
+        {#        type: "DELETE",#}
+        {#        success: alert('delete success'),#}
+        {#        error: alert('delete fail')#}
+        {#    })#}
+
+        alert('success');
+    })
+
+
+</script>

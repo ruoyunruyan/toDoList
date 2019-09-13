@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    编辑
+{% endblock title %}
+
+{% block content %}
+    <br>
+    <form id="form-edit">
+        <div class="form-group">
+            <label for="editTodo"></label>
+            <input type="text" class="form-control form-control-lg" id="editTodo" value="遛狗">
+            <small id="help" class="form-text text-muted">在这里编辑待办事项</small>
+        </div>
+        <button type="button" class="btn btn-primary btn-lg btn-block">提交</button>
+    </form>
+
+{% endblock content %}
+
