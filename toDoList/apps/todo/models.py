@@ -2,6 +2,7 @@ from django.db import models
 
 
 class ThingsModel(models.Model):
+
     THING_STATUS = (
         (1, '已完成'),
         (2, '未完成')

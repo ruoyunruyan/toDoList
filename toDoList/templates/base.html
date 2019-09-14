@@ -16,6 +16,9 @@
 
     <!-- Custom styles for this template -->
     <link rel="stylesheet" href="{% static 'css/custom.css' %}">
+
+    {% block common_js %}{% endblock %}
+
 </head>
 
 <body>
@@ -50,7 +53,7 @@
         {% endblock content %}
 
     </main>
-
+    <script src="{% static 'js/jquery-1.12.4.min.js' %}"></script>
     <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
 </body>
 

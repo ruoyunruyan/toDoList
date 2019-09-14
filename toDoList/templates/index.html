@@ -8,6 +8,10 @@
     active
 {% endblock home_light %}
 
+{% block common_js %}
+    <script src="{% static 'js/common.js' %}"></script>
+{% endblock common_js %}
+
 {% block content %}
     <br>
     <div class="table-responsive">
@@ -33,7 +37,7 @@
                         <td {% if thing.status == 1 %}class="text-dark" id="line-through"{% endif %}>{{ thing.content }}</td>
 
                         <td><a href="{% url 'edit' thing.id %}" class="text-info">编辑</a></td>
-                        <td><a href="{% url 'edit' thing.id %}" class="text-info">划掉</a></td>
+                        <td><a href="{% url 'line' thing.id %}" class="text-info">{% if thing.status == 1 %}撤销{% else %}划掉{% endif %}</a></td>
                         <td><a href="javascript:void (0)" class="text-danger" onclick="del_thing({{ thing.id }})">删除</a></td>
                     </tr>
 
@@ -43,20 +47,3 @@
         </table>
     </div>
 {% endblock content %}
-
-<script>
-
-    $(function () {
-        {#del_thing(id) {#}
-        {#    $.ajax({#}
-        {#        url: "/edit/" + id,#}
-        {#        type: "DELETE",#}
-        {#        success: alert('delete success'),#}
-        {#        error: alert('delete fail')#}
-        {#    })#}
-
-        alert('success');
-    })
-
-
-</script>
